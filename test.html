@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta http-equiv="Content-Language" content="utf-8" />
+  <title>页面</title>
+  <meta content="all" name="robots" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="filetype" content="1" />
+  <meta name="publishedtype" content="1" />
+  <meta name="pagetype" content="2" />
+  <meta name="catalogs" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <!--优先使用 IE 最新版本和 Chrome-->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <!--360 使用Google Chrome Frame-->
+  <meta name="renderer" content="webkit">
+  <link charset="utf-8"  rel="stylesheet" href="https://cunchu.site/work/login/standard.css">
+  <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let appType = 'debuger'
+    let owoLoginIframe = document.createElement('iframe')
+    owoLoginIframe.src = "./index.html?appType=" + appType
+    owoLoginIframe.style.width = '100%'
+    owoLoginIframe.style.height = '100%'
+    owoLoginIframe.style.border = 'none'
+    owoLoginIframe.style.display = 'none'
+    document.body.appendChild(owoLoginIframe)
+    // 监听消息
+    window.addEventListener("message", function (event) {
+      try {
+        const messageData = JSON.parse(event.data)
+        console.log(messageData)
+        switch (messageData.type) {
+          case 'owoError':
+            alert(messageData.data)
+            break;
+          case 'owoLoginSuccess':
+            // owo.tool.toast('登陆成功');
+            owoLoginIframe.style.display = 'none';
+            localStorage.setItem('owoUserInfo_' + appType, JSON.stringify(messageData.data));
+            break;
+          case 'owoNeedLogin':
+            // owo.tool.toast('需要登录');
+            owoLoginIframe.style.display = 'block';
+            break;
+          default:
+            break;
+        }
+      } catch (error) {
+        
+      }
+    });
+  </script>
+  <script src="https://cunchu.site/work/login/standard.js"></script>
+</body>
+
+</html>
