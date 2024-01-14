@@ -155,6 +155,72 @@
       list-style: none;
     }
 
+    
+    .loading-page text {
+      text-anchor: middle;
+      font-size: 60px;
+      opacity: 0;
+    }
+
+    @keyframes breath-481ac855-6e85-45a5-8371-62ce4041f8c9 {
+      0% {
+        animation-timing-function: cubic-bezier(0.9647,0.2413,-0.0705,0.7911);
+        transform: scale(0.9099999999999999);
+      }
+
+      51% {
+        animation-timing-function: cubic-bezier(0.9226,0.2631,-0.0308,0.7628);
+        transform: scale(1.02994);
+      }
+
+      100% {
+        transform: scale(0.9099999999999999);
+      }
+    }
+
+    .loading-page svg {
+      background: #ffffff;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }/* Radial Out */
+    [o-hover="radial-out"] {
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      position: relative;
+      overflow: hidden;
+      background: #e1e1e1;
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+    [o-hover="radial-out"]:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #2098D1;
+      border-radius: 100%;
+      transform: scale(0);
+      transition-property: transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    [o-hover="radial-out"]:hover, [o-hover="radial-out"]:focus, [o-hover="radial-out"]:active {
+      color: white;
+    }
+    [o-hover="radial-out:hover"]:before, [o-hover="radial-out:focus"]:before, [o-hover="radial-out:active"]:before {
+      transform: scale(2);
+    }
+
     .login {
       width: 100%;
       height: 100%;
@@ -352,25 +418,60 @@
 </head>
 
 <body>
+  <!-- 页面[loading]-->
+  <div class="loading-page page" id="loadingBox" template="loading">
+    <svg xmlns="http://www.w3.org/2000/svg" style="margin:auto;background:#ffffff;display:block;" width="318" height="250" preserveAspectRatio="xMidYMid">
+      <g style="transform-origin: 159px 125px; transform: scale(0.575);">
+        <g transform="translate(159,125)">
+          <g transform="translate(0,0)">
+            <g class="path" style="transform: scale(0.91); transform-origin: -127.97px -7.51127px; animation: 1s linear -0.5775s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M16.09-60.70L16.09-13.44L16.09-13.44Q16.09-10.78 16.80-9.26L16.80-9.26L16.80-9.26Q17.50-7.73 18.75-6.99L18.75-6.99L18.75-6.99Q20-6.25 21.60-6.02L21.60-6.02L21.60-6.02Q23.20-5.78 25.08-5.78L25.08-5.78L25.08 0L25.08 0Q24.06 0.16 22.97 0.23L22.97 0.23L22.97 0.23Q22.11 0.31 20.94 0.35L20.94 0.35L20.94 0.35Q19.77 0.39 18.59 0.39L18.59 0.39L18.59 0.39Q17.42 0.39 16.25 0.31L16.25 0.31L16.25 0.31Q15.08 0.23 14.14 0.08L14.14 0.08L14.14 0.08Q11.48-0.47 10-2.27L10-2.27L10-2.27Q8.52-4.06 7.73-6.29L7.73-6.29L7.73-6.29Q6.95-8.52 6.76-10.63L6.76-10.63L6.76-10.63Q6.56-12.73 6.56-13.91L6.56-13.91L6.56-14.84L6.56-60.70L16.09-60.70" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: -89.535px 0.688728px; animation: 1s linear -0.495s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M54.69-44.30L54.69-44.30L54.69-44.30Q59.22-44.30 62.89-42.54L62.89-42.54L62.89-42.54Q66.56-40.78 69.14-37.73L69.14-37.73L69.14-37.73Q71.72-34.69 73.13-30.63L73.13-30.63L73.13-30.63Q74.53-26.56 74.53-21.88L74.53-21.88L74.53-21.88Q74.53-17.19 73.05-13.09L73.05-13.09L73.05-13.09Q71.56-8.98 68.87-5.98L68.87-5.98L68.87-5.98Q66.17-2.97 62.46-1.29L62.46-1.29L62.46-1.29Q58.75 0.39 54.22 0.39L54.22 0.39L54.22 0.39Q49.61 0.39 45.82-1.33L45.82-1.33L45.82-1.33Q42.03-3.05 39.41-6.09L39.41-6.09L39.41-6.09Q36.80-9.14 35.39-13.20L35.39-13.20L35.39-13.20Q33.98-17.27 33.98-22.03L33.98-22.03L33.98-22.03Q33.98-26.80 35.51-30.94L35.51-30.94L35.51-30.94Q37.03-35.08 39.73-38.01L39.73-38.01L39.73-38.01Q42.42-40.94 46.25-42.62L46.25-42.62L46.25-42.62Q50.08-44.30 54.69-44.30zM54.06-7.03L54.06-7.03L54.06-7.03Q56.41-7.03 58.32-8.16L58.32-8.16L58.32-8.16Q60.23-9.30 61.60-11.29L61.60-11.29L61.60-11.29Q62.97-13.28 63.79-16.02L63.79-16.02L63.79-16.02Q64.61-18.75 64.61-21.88L64.61-21.88L64.61-21.88Q64.61-25 63.87-27.73L63.87-27.73L63.87-27.73Q63.13-30.47 61.84-32.54L61.84-32.54L61.84-32.54Q60.55-34.61 58.67-35.86L58.67-35.86L58.67-35.86Q56.80-37.11 54.45-37.11L54.45-37.11L54.45-37.11Q52.11-37.11 50.16-35.94L50.16-35.94L50.16-35.94Q48.20-34.77 46.84-32.77L46.84-32.77L46.84-32.77Q45.47-30.78 44.73-28.09L44.73-28.09L44.73-28.09Q43.98-25.39 43.98-22.27L43.98-22.27L43.98-22.27Q43.98-19.14 44.65-16.37L44.65-16.37L44.65-16.37Q45.31-13.59 46.64-11.56L46.64-11.56L46.64-11.56Q47.97-9.53 49.80-8.28L49.80-8.28L49.80-8.28Q51.64-7.03 54.06-7.03" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: -40.35px 0.648727px; animation: 1s linear -0.4125s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M118.75-23.83L118.75-13.67L118.75-13.05L118.75-13.05Q118.75-12.42 118.83-11.21L118.83-11.21L118.83-11.21Q118.91-10 119.14-8.75L119.14-8.75L119.14-8.75Q119.38-7.50 119.88-6.48L119.88-6.48L119.88-6.48Q120.39-5.47 121.25-5.16L121.25-5.16L118.75 0.08L118.75 0.08Q117.73 0.08 116.60-0.39L116.60-0.39L116.60-0.39Q115.47-0.86 114.41-1.72L114.41-1.72L114.41-1.72Q113.36-2.58 112.62-3.63L112.62-3.63L112.62-3.63Q111.88-4.69 111.48-5.94L111.48-5.94L111.48-5.94Q110.94-4.61 109.57-3.48L109.57-3.48L109.57-3.48Q108.20-2.34 106.48-1.45L106.48-1.45L106.48-1.45Q104.77-0.55 102.77-0.08L102.77-0.08L102.77-0.08Q100.78 0.39 99.06 0.39L99.06 0.39L99.06 0.39Q96.41 0.39 93.95-0.31L93.95-0.31L93.95-0.31Q91.48-1.02 89.61-2.58L89.61-2.58L89.61-2.58Q87.73-4.14 86.68-6.72L86.68-6.72L86.68-6.72Q85.63-9.30 85.63-13.05L85.63-13.05L85.63-13.05Q85.63-16.64 87.15-19.26L87.15-19.26L87.15-19.26Q88.67-21.88 91.05-23.55L91.05-23.55L91.05-23.55Q93.44-25.23 96.48-26.05L96.48-26.05L96.48-26.05Q99.53-26.88 102.66-26.88L102.66-26.88L109.30-26.88L109.30-26.88Q109.30-30.70 108.91-32.97L108.91-32.97L108.91-32.97Q108.52-35.23 107.58-36.29L107.58-36.29L107.58-36.29Q106.64-37.34 105.27-37.62L105.27-37.62L105.27-37.62Q103.91-37.89 102.03-37.89L102.03-37.89L102.03-37.89Q100.31-37.89 98.79-37.46L98.79-37.46L98.79-37.46Q97.27-37.03 95.98-36.45L95.98-36.45L95.98-36.45Q94.69-35.86 93.71-35.16L93.71-35.16L93.71-35.16Q92.73-34.45 92.27-34.06L92.27-34.06L88.75-39.45L88.75-39.45Q89.53-40.31 91.09-41.21L91.09-41.21L91.09-41.21Q92.66-42.11 94.69-42.81L94.69-42.81L94.69-42.81Q96.72-43.52 99.10-43.95L99.10-43.95L99.10-43.95Q101.48-44.38 104.06-44.38L104.06-44.38L104.06-44.38Q106.41-44.38 108.63-43.91L108.63-43.91L108.63-43.91Q110.86-43.44 112.70-42.34L112.70-42.34L112.70-42.34Q114.53-41.25 115.90-39.41L115.90-39.41L115.90-39.41Q117.27-37.58 117.81-34.84L117.81-34.84L117.81-34.84Q118.36-32.11 118.55-29.34L118.55-29.34L118.55-29.34Q118.75-26.56 118.75-23.83L118.75-23.83zM109.38-10.55L109.38-21.33L104.38-21.33L104.38-21.33Q102.81-21.33 101.09-21.02L101.09-21.02L101.09-21.02Q99.38-20.70 97.89-19.84L97.89-19.84L97.89-19.84Q96.41-18.98 95.43-17.38L95.43-17.38L95.43-17.38Q94.45-15.78 94.45-13.28L94.45-13.28L94.45-13.28Q94.45-9.38 96.21-7.66L96.21-7.66L96.21-7.66Q97.97-5.94 101.33-5.94L101.33-5.94L101.33-5.94Q103.67-5.94 105.82-7.19L105.82-7.19L105.82-7.19Q107.97-8.44 109.38-10.55L109.38-10.55" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: 6.83502px -7.51127px; animation: 1s linear -0.33s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M136.64-4.45L136.64-4.45L136.64-4.45Q133.67-7.81 132.27-12.73L132.27-12.73L132.27-12.73Q130.86-17.66 130.86-22.66L130.86-22.66L130.86-22.66Q130.86-28.75 132.54-32.89L132.54-32.89L132.54-32.89Q134.22-37.03 136.88-39.61L136.88-39.61L136.88-39.61Q139.53-42.19 142.77-43.32L142.77-43.32L142.77-43.32Q146.02-44.45 149.14-44.45L149.14-44.45L149.14-44.45Q152.97-44.45 156.13-43.13L156.13-43.13L156.13-43.13Q159.30-41.80 160.86-39.61L160.86-39.61L160.86-60.70L170.39-60.70L170.39 0L161.41 0L161.41 0Q161.25-1.33 161.13-2.70L161.13-2.70L161.13-2.70Q161.02-4.06 160.86-5.23L160.86-5.23L160.86-5.23Q160.63-4.22 159.49-3.20L159.49-3.20L159.49-3.20Q158.36-2.19 156.60-1.37L156.60-1.37L156.60-1.37Q154.84-0.55 152.66-0.08L152.66-0.08L152.66-0.08Q150.47 0.39 148.13 0.39L148.13 0.39L148.13 0.39Q145 0.39 141.99-0.70L141.99-0.70L141.99-0.70Q138.98-1.80 136.64-4.45zM140.86-21.95L140.86-21.95L140.86-21.95Q140.86-18.83 141.64-16.13L141.64-16.13L141.64-16.13Q142.42-13.44 143.75-11.41L143.75-11.41L143.75-11.41Q145.08-9.38 146.99-8.20L146.99-8.20L146.99-8.20Q148.91-7.03 151.17-7.03L151.17-7.03L151.17-7.03Q153.59-7.03 155.51-8.24L155.51-8.24L155.51-8.24Q157.42-9.45 158.75-11.48L158.75-11.48L158.75-11.48Q160.08-13.52 160.78-16.25L160.78-16.25L160.78-16.25Q161.48-18.98 161.48-22.11L161.48-22.11L161.48-22.11Q161.48-25.23 160.74-27.97L160.74-27.97L160.74-27.97Q160-30.70 158.63-32.73L158.63-32.73L158.63-32.73Q157.27-34.77 155.35-35.98L155.35-35.98L155.35-35.98Q153.44-37.19 151.02-37.19L151.02-37.19L151.02-37.19Q148.59-37.19 146.72-35.98L146.72-35.98L146.72-35.98Q144.84-34.77 143.55-32.66L143.55-32.66L143.55-32.66Q142.27-30.55 141.56-27.81L141.56-27.81L141.56-27.81Q140.86-25.08 140.86-21.95" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: 44.645px 0.613728px; animation: 1s linear -0.2475s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M193.20-44.06L193.20 0L183.67 0L183.67-44.06L193.20-44.06" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: 44.685px -35.5213px; animation: 1s linear -0.165s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M194.06-58.13L194.06-58.13L194.06-58.13Q194.06-55.78 192.42-54.18L192.42-54.18L192.42-54.18Q190.78-52.58 188.44-52.58L188.44-52.58L188.44-52.58Q186.09-52.58 184.49-54.22L184.49-54.22L184.49-54.22Q182.89-55.86 182.89-58.13L182.89-58.13L182.89-58.13Q182.89-60.47 184.53-62.11L184.53-62.11L184.53-62.11Q186.17-63.75 188.44-63.75L188.44-63.75L188.44-63.75Q190.78-63.75 192.42-62.11L192.42-62.11L192.42-62.11Q194.06-60.47 194.06-58.13" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: 80.935px 0.378729px; animation: 1s linear -0.0825s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M242.97-1.56L242.97 0L233.44 0L233.44-23.98L233.44-23.98Q233.44-26.64 233.20-29.06L233.20-29.06L233.20-29.06Q232.97-31.48 232.11-33.36L232.11-33.36L232.11-33.36Q231.25-35.23 229.77-36.29L229.77-36.29L229.77-36.29Q228.28-37.34 225.63-37.34L225.63-37.34L225.63-37.34Q224.77-37.34 223.40-37.11L223.40-37.11L223.40-37.11Q222.03-36.88 220.59-36.41L220.59-36.41L220.59-36.41Q219.14-35.94 217.85-35.23L217.85-35.23L217.85-35.23Q216.56-34.53 215.94-33.59L215.94-33.59L215.94-33.13L215.94-32.97L215.94-15.63L215.94-15.47L215.94 0L206.48 0L206.48-44.06L214.92-44.06L215.94-39.61L215.94-39.61Q216.88-40.47 218.32-41.37L218.32-41.37L218.32-41.37Q219.77-42.27 221.48-42.97L221.48-42.97L221.48-42.97Q223.20-43.67 225-44.10L225-44.10L225-44.10Q226.80-44.53 228.52-44.53L228.52-44.53L228.52-44.53Q232.03-44.53 234.45-43.05L234.45-43.05L234.45-43.05Q236.88-41.56 239.30-39.22L239.30-39.22L239.30-39.22Q240.63-37.89 241.37-36.13L241.37-36.13L241.37-36.13Q242.11-34.38 242.46-32.46L242.46-32.46L242.46-32.46Q242.81-30.55 242.89-28.59L242.89-28.59L242.89-28.59Q242.97-26.64 242.97-24.77L242.97-24.77L242.97-1.56" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+            <g class="path" style="transform: scale(0.91); transform-origin: 130.625px 9.28373px; animation: 1s linear 0s infinite normal forwards running breath-481ac855-6e85-45a5-8371-62ce4041f8c9;">
+              <path d="M259.53 11.09L265 5.70L265 5.70Q265.78 7.03 266.99 7.89L266.99 7.89L266.99 7.89Q268.20 8.75 269.49 9.22L269.49 9.22L269.49 9.22Q270.78 9.69 272.07 9.88L272.07 9.88L272.07 9.88Q273.36 10.08 274.38 10.08L274.38 10.08L274.38 10.08Q279.22 10.08 281.95 7.27L281.95 7.27L281.95 7.27Q284.69 4.45 284.69-2.34L284.69-2.34L284.69-4.38L284.69-4.53L284.77-4.92L284.77-4.92Q284.77-5 284.73-5.08L284.73-5.08L284.73-5.08Q284.69-5.16 284.69-5.23L284.69-5.23L284.69-5.23Q284.45-4.22 283.32-3.20L283.32-3.20L283.32-3.20Q282.19-2.19 280.47-1.37L280.47-1.37L280.47-1.37Q278.75-0.55 276.56-0.08L276.56-0.08L276.56-0.08Q274.38 0.39 272.03 0.39L272.03 0.39L272.03 0.39Q267.66 0.39 264.38-1.52L264.38-1.52L264.38-1.52Q261.09-3.44 258.91-6.64L258.91-6.64L258.91-6.64Q256.72-9.84 255.70-13.98L255.70-13.98L255.70-13.98Q254.69-18.13 254.69-22.66L254.69-22.66L254.69-22.66Q254.69-28.75 256.37-32.89L256.37-32.89L256.37-32.89Q258.05-37.03 260.66-39.65L260.66-39.65L260.66-39.65Q263.28-42.27 266.52-43.36L266.52-43.36L266.52-43.36Q269.77-44.45 272.89-44.45L272.89-44.45L272.89-44.45Q276.72-44.45 279.88-43.13L279.88-43.13L279.88-43.13Q283.05-41.80 284.69-39.61L284.69-39.61L285.70-44.06L294.14-44.06L294.06 0L294.06 0Q293.75 4.77 292.15 8.13L292.15 8.13L292.15 8.13Q290.55 11.48 288.05 13.67L288.05 13.67L288.05 13.67Q285.55 15.86 282.27 16.80L282.27 16.80L282.27 16.80Q278.98 17.73 275.23 17.73L275.23 17.73L275.23 17.73Q270.86 17.73 266.60 16.21L266.60 16.21L266.60 16.21Q262.34 14.69 259.53 11.09L259.53 11.09zM285.31-22.34L285.31-22.34L285.31-22.34Q285.31-25.47 284.53-28.13L284.53-28.13L284.53-28.13Q283.75-30.78 282.42-32.81L282.42-32.81L282.42-32.81Q281.09-34.84 279.14-36.02L279.14-36.02L279.14-36.02Q277.19-37.19 274.92-37.19L274.92-37.19L274.92-37.19Q272.58-37.19 270.66-35.98L270.66-35.98L270.66-35.98Q268.75-34.77 267.42-32.73L267.42-32.73L267.42-32.73Q266.09-30.70 265.39-27.97L265.39-27.97L265.39-27.97Q264.69-25.23 264.69-22.19L264.69-22.19L264.69-22.19Q264.69-19.06 265.43-16.29L265.43-16.29L265.43-16.29Q266.17-13.52 267.54-11.48L267.54-11.48L267.54-11.48Q268.91-9.45 270.82-8.24L270.82-8.24L270.82-8.24Q272.73-7.03 275.08-7.03L275.08-7.03L275.08-7.03Q277.50-7.03 279.38-8.24L279.38-8.24L279.38-8.24Q281.25-9.45 282.54-11.52L282.54-11.52L282.54-11.52Q283.83-13.59 284.57-16.41L284.57-16.41L284.57-16.41Q285.31-19.22 285.31-22.34" fill="#52afda" stroke="none" stroke-width="none" transform="translate(-143.78997802734375,22.64372577190399)" style="fill: rgb(82, 175, 218);"></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
   <!-- 页面[login]-->
-  <div class="login page" template="login" style="display: none;">
-    <div class="router" view="loginContent">
-      <div class="view-login" route="login">
+  <div class="login page" id="loginBox" template="login" style="display: none;">
+    <div class="router" id="loginContent">
+      <div class="view-login" id="login">
         <div class="image-box">
           <img src="//cunchu.site/puge/login/image-box.png">
         </div>
         <div class="hellow-text">嗨，欢迎回来!</div>
         <div class="user-name-bar input-bar">
           <img class="bar-icon" src="//cunchu.site/puge/login/user.png">
-          <input type="text" o-value="this.data.username" placeholder="用户名">
+          <input type="text" id="username" placeholder="用户名">
         </div>
         <div class="pass-word-bar input-bar">
           <img class="bar-icon" src="//cunchu.site/puge/login/password.png">
-          <input type="password" o-value="this.data.password" placeholder="密码">
+          <input type="password" id="password" placeholder="密码">
         </div>
         <div class="button-box">
-          <div class="button" o-tap="login" o-hover="radial-out">登录</div>
-          <div class="button" o-hover="radial-out" style=" background-color: burlywood;" go="/view-loginContent=register">注册</div>
+          <div class="button" onclick="owo.script.login.login()" o-hover="radial-out">登录</div>
+          <div class="button" o-hover="radial-out" style=" background-color: burlywood;" onclick="window.login.style.display='none';window.register.style.display='block';">注册</div>
         </div>
         <div class="tool-bar">
           <div class="left"></div>
@@ -379,25 +480,26 @@
           </div>
         </div>
       </div>
-      <div class="view-register" route="register">
+      <div class="view-register" id="register" style="display: none;">
         <img class="bg-1" src="//cunchu.site/puge/login/art.png">
         <p>欢迎注册账号</p>
-        <input class="register-input" type="text" o-value="this.data.registerusername" placeholder="用户名">
-        <input class="register-input" type="password" o-value="this.data.registerPassWord" placeholder="密码">
-        <input class="register-input" type="password" o-value="this.data.registerPassWordR" placeholder="确认密码">
+        <input class="register-input" type="text" id="registerusername" placeholder="用户名">
+        <input class="register-input" type="password" id="registerPassWord" placeholder="密码">
+        <input class="register-input" type="password" id="registerPassWordR" placeholder="确认密码">
         <div class="mini-box clear">
-          <input class="register-input" type="text" o-value="this.data.registerPhone" placeholder="手机号码">
-          <div class="button" o-tap="sendSMS">发送验证码</div>
+          <input class="register-input" type="text" id="registerPhone" placeholder="手机号码">
+          <div class="button" onclick="owo.script.login.sendSMS()">发送验证码</div>
         </div>
-        <input class="register-input" type="text" o-value="this.data.registerCode" placeholder="验证码">
-        <div class="button" o-tap="register">注册</div>
+        <input class="register-input" type="text" id="registerCode" placeholder="验证码">
+        <div class="button" onclick="owo.script.login.register()">注册</div>
+        <div class="button" o-hover="radial-out" style=" background-color: burlywood;" onclick="window.login.style.display='block';window.register.style.display='none';">返回</div>
       </div>
     </div>
   </div>
 
   <!-- 框架script文件 -->
-  <script src="./static/js/owo.core.3ugw4oy4z93.js" type="text/javascript" charset="UTF-8"></script>
   <script type="text/javascript" charset="UTF-8">
+    window.owo = {}
     function getQueryVariable(variable, url) {
        var query = window.location.search.substring(1);
        if (url) {
@@ -420,9 +522,13 @@
       if (userInfo.username && userInfo.session) {
         getDataFormSession(userInfo.username, userInfo.session)
       } else {
+        window.loadingBox.style.display = 'none'
+        window.loginBox.style.display = 'block'
         window.parent.postMessage(JSON.stringify({"type":"owoNeedLogin", "data": ""}));
       }
     } else {
+      window.loadingBox.style.display = 'none'
+      window.loginBox.style.display = 'block'
       window.parent.postMessage(JSON.stringify({"type":"owoNeedLogin", "data": ""}));
     }
     function getDataFormSession(username, session, callBack) {
@@ -446,7 +552,9 @@
           window.parent.postMessage(JSON.stringify({"type":"owoLoginSuccess", "data": res.data}));
           if (callBack) callBack(res.data)
         } else {
-          window.parent.postMessage(JSON.stringify({"type":"owoError", "data": res.message}));
+          window.loadingBox.style.display = 'none'
+          window.loginBox.style.display = 'block'
+          alert(res.message);
         }
       });
     }
@@ -514,21 +622,10 @@
     }
     owo.script = {
       "login": {
-        "data": {
-          "registerusername": "",
-          "registerPassWord": "",
-          "registerPassWordR": "",
-          "registerPhone": "",
-          "registerCode": "",
-          "username": "",
-          "password": "",
-          "session": null,
-          "smsTime": 0
-        },
         "created": function created() {
           // 自动加载用户名
           if (localStorage.getItem('username')) {
-            this.data.username = localStorage.getItem('username');
+            window.username = localStorage.getItem('username');
           }
         },
         "login": function login() {
@@ -539,8 +636,8 @@
             },
             body: JSON.stringify({
               type: appType,
-              username: this.data.username,
-              password: this.data.password
+              username: window.username.value,
+              password: window.password.value
             })
           }).then(function(response) {
             return response.json();
@@ -564,23 +661,23 @@
           });
         },
         "register": function register() {
-          if (!this.data.registerusername) {
+          if (!window.registerusername.value) {
             alert('用户名不能为空哦!');
             return;
           }
-          if (!this.data.registerPassWord) {
+          if (!window.registerPassWord.value) {
             alert('密码不能为空哦!');
             return;
           }
-          if (!this.data.registerPassWordR) {
+          if (!window.registerPassWordR.value) {
             alert('重复密码不能为空哦!');
             return;
           }
-          if (!this.data.registerPhone) {
+          if (!window.registerPhone.value) {
             alert('手机号码不能为空!');
             return;
           }
-          if (this.data.registerPassWord !== this.data.registerPassWordR) {
+          if (window.registerPassWord.value !== window.registerPassWordR.value) {
             alert('两次输入的密码不一致哦!');
             return;
           }
@@ -590,10 +687,10 @@
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              phone: this.data.registerPhone,
-              username: this.data.registerusername,
-              password: this.data.registerPassWord,
-              code: this.data.registerCode
+              phone: window.registerPhone.value,
+              username: window.registerusername.value,
+              password: window.registerPassWord.value,
+              code: window.registerCode.value
             })
           }).then(function(response) {
             return response.json();
@@ -607,22 +704,22 @@
           });
         },
         "sendSMS": function sendSMS() {
-          if (!this.data.registerPhone) {
+          if (!window.registerPhone.value) {
             alert('手机号码不能为空!');
             return;
           }
-          if (Date.parse(new Date()) - this.data.smsTime < 60000) {
+          if (Date.parse(new Date()) - window.smsTime.value < 60000) {
             alert('发送短信需间隔一分钟!');
             return;
           }
-          this.data.smsTime = Date.parse(new Date());
+          window.smsTime = Date.parse(new Date());
           fetch("//service-eqp55afi-1256763111.gz.apigw.tencentcs.com/release/sendSMS", {
             method: 'POST',
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              phone: this.data.registerPhone
+              phone: window.registerPhone.value
             })
           }).then(function(response) {
             return response.json();
