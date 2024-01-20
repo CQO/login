@@ -499,7 +499,9 @@
 
   <!-- 框架script文件 -->
   <script type="text/javascript" charset="UTF-8">
-    window.owo = {}
+    window.owo = {
+      state: {}
+    }
     function getQueryVariable(variable, url) {
        var query = window.location.search.substring(1);
        if (url) {
@@ -629,6 +631,8 @@
           }
         },
         "login": function login() {
+          window.loadingBox.style.display = 'block'
+          window.loginBox.style.display = 'none'
           fetch("//service-eqp55afi-1256763111.gz.apigw.tencentcs.com/release/login", {
             method: 'POST',
             headers: {
@@ -642,7 +646,8 @@
           }).then(function(response) {
             return response.json();
           }).then(function(res) {
-            console.log(res);
+            window.loadingBox.style.display = 'none'
+            window.loginBox.style.display = 'block'
             if (res.err === 0) {
               window.parent.postMessage(JSON.stringify({"type":"owoLoginSuccess", "data": res.data}));
               owo.state.userInfo = res.data;
@@ -656,7 +661,7 @@
                 }
               }, 0);
             } else {
-              window.parent.postMessage(JSON.stringify({"type":"owoError", "data": res.message}));
+              alert(res.message)
             }
           });
         },
