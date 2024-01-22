@@ -28,14 +28,7 @@
 </head>
 <body>
   <script>
-    let appType = 'debuger'
-    let owoLoginIframe = document.createElement('iframe')
-    owoLoginIframe.src = "./index.html?appType=" + appType
-    owoLoginIframe.style.width = '100%'
-    owoLoginIframe.style.height = '100%'
-    owoLoginIframe.style.border = 'none'
-    // owoLoginIframe.style.display = 'none'
-    document.body.appendChild(owoLoginIframe)
+    
     // 监听消息
     window.addEventListener("message", function (event) {
       try {
@@ -49,6 +42,7 @@
             // owo.tool.toast('登陆成功');
             owoLoginIframe.style.display = 'none';
             localStorage.setItem('owoUserInfo_' + appType, JSON.stringify(messageData.data));
+            if (window.owoLoginSuccess) owoLoginSuccess(messageData.data)
             break;
           case 'owoNeedLogin':
             // owo.tool.toast('需要登录');
@@ -58,9 +52,17 @@
             break;
         }
       } catch (error) {
-        
+        console.log(error)
       }
     });
+    let appType = 'debuger'
+    let owoLoginIframe = document.createElement('iframe')
+    owoLoginIframe.src = "//cunchu-1256763111.cos.ap-guangzhou.myqcloud.com/work/login/iframe.html?appType=" + appType
+    owoLoginIframe.style.width = '100%'
+    owoLoginIframe.style.height = '100%'
+    owoLoginIframe.style.border = 'none'
+    // owoLoginIframe.style.display = 'none'
+    document.body.appendChild(owoLoginIframe)
   </script>
   <script src="https://cunchu.site/work/login/standard.js"></script>
 </body>
